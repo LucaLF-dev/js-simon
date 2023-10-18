@@ -3,10 +3,10 @@
 function getArrayOfRandomIntBetween(min, max, number) {
 	const arrayRandomNumber = [];
 
-	while (array.length < number) {
+	while (arrayRandomNumber.length < number) {
 		const n = getRandomIntInclusive(min, max);
 
-		console.log(array.includes(n));
+		console.log(arrayRandomNumber.includes(n));
 		if (arrayRandomNumber.includes(n) !== true) {
 			arrayRandomNumber.push(n);
 		}
@@ -53,6 +53,7 @@ btnGeneratorDOMElement.addEventListener("click", function () {
 	const idSecondInteval = setTimeout(function () {
 		
         containerDOMElement.innerHTML = "";
+		console.log(containerDOMElement)
 
 		let numeriIndovinati = []
 
