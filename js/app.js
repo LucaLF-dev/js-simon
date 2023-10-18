@@ -40,8 +40,6 @@ let promptNumber;
 console.log(arrayNumber, arrayRandomNumber);
 
 btnGeneratorDOMElement.addEventListener("click", function () {
-	
-
 	for (i = 0; i < 5; i++) {
 		const htmlItem = `<div class="number-item"> ${arrayRandomNumber[i]}</div> `;
 
@@ -51,23 +49,29 @@ btnGeneratorDOMElement.addEventListener("click", function () {
 	wrapperBtnDOMElement.innerHTML = "";
 
 	const idSecondInteval = setTimeout(function () {
-		
-        containerDOMElement.innerHTML = "";
-		console.log(containerDOMElement)
+		containerDOMElement.innerHTML = "";
+		console.log(containerDOMElement);
 
-		let numeriIndovinati = []
+		setTimeout(function () {
+			for (i = 0; i < 5; i++) {
+				promptNumber = parseInt(prompt("inserisci i numeri che ricordi"));
+				if (arrayNumber === promptNumber[i]) {
+					arrayNumber.push(promptNumber);
+				}
+			}
 
-		for (i = 0; i < 5; i++) {
-		promptNumber = parseInt(prompt("inserisci i numeri che ricordi")) 
-	    if (arrayNumber === (promptNumber[i])) {
-			arrayNumber.push(promptNumber)
-		}
-	}
+			alert("hai indovinato" + arrayNumber + "e esattamenti i numeri:");
+			console.log(idSecondInteval);
+		}, 2 * 1000);
 
-        
-		alert("hai indovinato" + arrayNumber + 'e esattamenti i numeri:');
-        console.log(idSecondInteval)
 	}, 5000);
-}); 
+});
 
 
+setTimeout(() => {
+	console.log('Ciao');
+}, 1000);
+
+while (true) {
+	console.log('Loop');
+}
