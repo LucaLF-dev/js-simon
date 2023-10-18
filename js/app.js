@@ -1,18 +1,18 @@
 // console.log('js simon')
 
 function getArrayOfRandomIntBetween(min, max, number) {
-	const arrayBombs = [];
+	const arrayRandomNumber = [];
 
-	while (arrayBombs.length < number) {
+	while (array.length < number) {
 		const n = getRandomIntInclusive(min, max);
 
-		console.log(arrayBombs.includes(n));
-		if (arrayBombs.includes(n) !== true) {
-			arrayBombs.push(n);
+		console.log(array.includes(n));
+		if (arrayRandomNumber.includes(n) !== true) {
+			arrayRandomNumber.push(n);
 		}
 	}
 
-	return arrayBombs;
+	return arrayRandomNumber;
 }
 
 function getRandomIntInclusive(min, max) {
@@ -30,21 +30,17 @@ console.log(numberItemDOMElement);
 const btnGeneratorDOMElement = document.querySelector(".btn__number-generator");
 console.log(btnGeneratorDOMElement);
 
-const wrapperBtnDOMElement = document.querySelector('.wrapper__button')
+const wrapperBtnDOMElement = document.querySelector(".wrapper__button");
 console.log(wrapperBtnDOMElement);
 
 let arrayNumber = [];
 let arrayRandomNumber = getArrayOfRandomIntBetween(1, 99, 5);
-let arrayNumeriPrompt = []
-let promptNumber
+let arrayNumeriPrompt = [];
+let promptNumber;
 console.log(arrayNumber, arrayRandomNumber);
 
-
-
-btnGeneratorDOMElement.addEventListener('click', function () {
-
-   
-    containerDOMElement.innerHTML = ''
+btnGeneratorDOMElement.addEventListener("click", function () {
+	
 
 	for (i = 0; i < 5; i++) {
 		const htmlItem = `<div class="number-item"> ${arrayRandomNumber[i]}</div> `;
@@ -52,31 +48,25 @@ btnGeneratorDOMElement.addEventListener('click', function () {
 		containerDOMElement.innerHTML += htmlItem;
 	}
 
-    wrapperBtnDOMElement.innerHTML = ''
+	wrapperBtnDOMElement.innerHTML = "";
+
+	const idSecondInteval = setTimeout(function () {
+		
+        containerDOMElement.innerHTML = "";
+
+		let numeriIndovinati = []
+
+		for (i = 0; i < 5; i++) {
+		promptNumber = parseInt(prompt("inserisci i numeri che ricordi")) 
+	    if (arrayNumber === (promptNumber[i])) {
+			arrayNumber.push(promptNumber)
+		}
+	}
+
+        
+		alert("hai indovinato" + arrayNumber + 'e esattamenti i numeri:');
+        console.log(idSecondInteval)
+	}, 5000);
+}); 
 
 
-const idSecondInteval = setTimeout(function (){
-    btnGeneratorDOMElement.innerHTML = ''
-   
-    for ( i= 0; i < 5; i++) {
-    promptNumber = parseInt(prompt('inserisci i numeri che ricordi'))
-    for ( j = 0; j < arrayRandomNumber.length; i++){
-        if (promptNumber == arrayRandomNumber[j]) {
-            arrayNumber.push(promptNumber)
-        }
-    }
-}
-    alert('hai indovinato' + arrayNumber)
-  
-    clearInterval(idSecondInteval)
-    
-},10000)
-});
-
-// const idInterval = setInterval(function(){
-//     containerDOMElement.innerHTML = ''
-
-//     clearInterval(idInterval)
-
-// },5000)
-// console.log(idInterval)
